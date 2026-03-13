@@ -1,7 +1,7 @@
 import SectionWrapper from "@/components/ui/SectionWrapper";
 
 const stats = [
-  { value: "20+", label: "Anos de Mercado" },
+  { value: "30+", label: "Anos de Mercado" },
   { value: "100%", label: "Atendimento Personalizado" },
   { value: "5", label: "Continentes Atendidos" },
 ];
