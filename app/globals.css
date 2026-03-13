@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* ============================================================
+   SINGULARIS TRAVEL — DESIGN SYSTEM
+   Style: Exaggerated Minimalism + Editorial
+   UI/UX Pro Max: Luxury travel, boutique, sophisticated
+   ============================================================ */
+
+@theme {
+  /* === TYPOGRAPHY === */
+  --font-sans: "Poppins", sans-serif;
+
+  /* === BRAND COLORS ===
+     Tailwind classes generated:
+     bg-brand-golden   text-brand-golden   border-brand-golden
+     bg-brand-earth    text-brand-earth    border-brand-earth
+     bg-brand-black    text-brand-black    border-brand-black
+     bg-brand-blue     text-brand-blue     border-brand-blue
+     bg-brand-green    text-brand-green    border-brand-green
+     bg-brand-yellow   text-brand-yellow   border-brand-yellow
+  */
+  --color-brand-yellow:  #E9E611;
+  --color-brand-golden:  #F1D213;
+  --color-brand-earth:   #83635A;
+  --color-brand-black:   #000000;
+  --color-brand-blue:    #04B9DE;
+  --color-brand-green:   #6AC28A;
+
+  /* === SURFACE / NEUTRAL === */
+  --color-surface-warm:  #F8F7F5;
+
+  /* === Z-INDEX SCALE === */
+  --z-index-nav: 50;
+
+  /* === TRANSITIONS === */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ============================================================
+   BASE RESETS
+   ============================================================ */
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+   ============================================================ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes nudgeDown {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================================
+   ANIMATION UTILITIES
+   ============================================================ */
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.7s var(--ease-luxury) both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.7s var(--ease-luxury) both;
+  }
+
+  .animate-nudge-down {
+    animation: nudgeDown 2.2s ease-in-out infinite;
+  }
+
+  .animation-delay-200  { animation-delay: 200ms; }
+  .animation-delay-400  { animation-delay: 400ms; }
+  .animation-delay-600  { animation-delay: 600ms; }
+  .animation-delay-800  { animation-delay: 800ms; }
+  .animation-delay-1000 { animation-delay: 1000ms; }
+
+  /* Respect prefers-reduced-motion (CRITICAL — UX Pro Max) */
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-up,
+    .animate-fade-in,
+    .animate-nudge-down {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}
